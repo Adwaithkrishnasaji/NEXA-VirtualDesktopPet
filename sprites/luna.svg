@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Luna the midnight cat">
+  <style>
+    .cat { animation: float 2.6s ease-in-out infinite; transform-origin: 120px 186px; }
+    .star { animation: shine 1.5s ease-in-out infinite alternate; transform-origin: center; }
+    @keyframes float { 50% { transform: translateY(-6px); } }
+    @keyframes shine { to { opacity: .35; transform: scale(.72) rotate(24deg); } }
+  </style>
+  <ellipse cx="120" cy="217" rx="68" ry="10" fill="#202344" opacity=".2"/>
+  <path class="star" d="m43 89 5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="#ffd969"/>
+  <path class="star" d="m194 61 4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#ffd969"/>
+  <g class="cat">
+    <path d="m54 112 4-66q1-13 13-5l49 40 49-40q12-8 13 5l4 66" fill="#6670b8" stroke="#343b78" stroke-width="7" stroke-linejoin="round"/>
+    <path d="m68 84 2-27 29 24m42 0 29-24 2 27" fill="#f2b9d5"/>
+    <path d="M49 139c0-42 31-69 71-69s71 27 71 69v30c0 27-18 42-45 42H94c-27 0-45-15-45-42z" fill="#6670b8" stroke="#343b78" stroke-width="7"/>
+    <path d="M77 132q14-13 28 0m30 0q14-13 28 0" fill="none" stroke="#f5dd78" stroke-width="7" stroke-linecap="round"/>
+    <path d="m111 153 9 7 9-7" fill="#f3a9c8"/>
+    <path d="M120 160q-2 15-19 14m19-14q2 15 19 14" fill="none" stroke="#303665" stroke-width="4" stroke-linecap="round"/>
+    <path d="m76 154-21-4m21 14-23 4m111-14 21-4m-21 14 23 4" stroke="#d8d9ff" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

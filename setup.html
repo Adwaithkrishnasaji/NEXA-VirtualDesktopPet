@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Set up your NEXA VirtualPet.">
+    <title>Set up your NEXA VirtualPet</title>
+    <link rel="stylesheet" href="setup.css">
+  </head>
+  <body>
+    <main class="setup-card">
+      <header class="setup-header">
+        <span class="version-badge" id="model-version">BETA</span>
+        <h1>Welcome to NEXA</h1>
+        <p>Personalize your AI desktop pet. Your setup stays on this device.</p>
+      </header>
+      <form id="setup-form">
+        <fieldset>
+          <legend>AI providers</legend>
+          <label class="field-label" for="gemini-api-key">Gemini API key <span class="required-label">Required</span></label>
+          <div class="api-key-row">
+            <input id="gemini-api-key" name="geminiApiKey" type="password" minlength="20" maxlength="512" autocomplete="new-password" spellcheck="false" required>
+            <button class="paste-button" type="button" data-paste-target="gemini-api-key">Paste</button>
+          </div>
+          <p class="field-hint">Used for AI chat and image generation. Obtain a key from Google AI Studio. NEXA encrypts it with your operating system's secure storage.</p>
+          <label class="field-label sprite-label" for="groq-api-key">Groq API key <span class="optional-label">Optional backup</span></label>
+          <div class="api-key-row">
+            <input id="groq-api-key" name="groqApiKey" type="password" minlength="20" maxlength="512" autocomplete="new-password" spellcheck="false">
+            <button class="paste-button" type="button" data-paste-target="groq-api-key">Paste</button>
+          </div>
+          <p class="field-hint">Used only if Gemini is unavailable. Leave blank to run without a backup provider.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Pet identity</legend>
+          <label class="field-label" for="pet-name">Pet name <span class="required-label">Required</span></label>
+          <input id="pet-name" name="petName" type="text" maxlength="32" autocomplete="off" required autofocus>
+          <p class="field-hint">Choose a name between 1 and 32 characters.</p>
+          <label class="field-label" for="character-style">Character <span class="required-label">Required</span></label>
+          <select id="character-style" name="character">
+            <option value="playful">Playful - witty pet friend</option>
+            <option value="friendly">Friendly - warm and encouraging</option>
+            <option value="professional">Professional - direct AI assistant</option>
+          </select>
+          <p class="field-hint">This controls the pet's conversational personality. You can still toggle serious mode in Settings.</p>
+          <label class="field-label sprite-label">Choose your pet <span class="required-label">Required</span></label>
+          <div class="sprite-gallery" id="sprite-gallery" role="radiogroup" aria-label="Choose a pet sprite"></div>
+          <label class="field-label sprite-label" for="sprite-file">Sprite <span class="optional-label">Optional</span></label>
+          <input id="sprite-file" name="sprite" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+          <p class="field-hint">A custom PNG, JPEG, WebP, or GIF up to 5 MB replaces the selected built-in sprite.</p>
+          <img id="sprite-preview" alt="Selected pet sprite preview" hidden>
+        </fieldset>
+
+        <fieldset>
+          <legend>Feature interests <span class="optional-label">Optional</span></legend>
+          <p class="field-hint">Optional preferences for which capabilities you'd most like to use.</p>
+          <div class="interest-list">
+            <label><input type="checkbox" name="featureInterest" value="ai-chat"><span><strong>AI chat</strong><small>Online AI answers and pet-control requests</small></span></label>
+            <label><input type="checkbox" name="featureInterest" value="voice"><span><strong>Voice</strong><small>Speech input and spoken replies</small></span></label>
+            <label><input type="checkbox" name="featureInterest" value="image-tools"><span><strong>Image tools</strong><small>Image generation and image attachments</small></span></label>
+            <label><input type="checkbox" name="featureInterest" value="screen-capture"><span><strong>Camera and screen capture</strong><small>Camera snapshots and screen/window sharing</small></span></label>
+            <label><input type="checkbox" name="featureInterest" value="web-tools"><span><strong>Web tools</strong><small>Web search and website shortcuts</small></span></label>
+            <label><input type="checkbox" name="featureInterest" value="music-video"><span><strong>Music and video</strong><small>Music playback and video search/player</small></span></label>
+            <label><input type="checkbox" name="featureInterest" value="messaging"><span><strong>Messaging integrations</strong><small>Third-party messaging automation</small></span></label>
+          </div>
+        </fieldset>
+
+        <aside class="privacy-note">
+          API keys are encrypted with OS secure storage and never written to the plain-text setup file. AI, voice, image, capture and online integrations may send the content you choose to share to their respective providers.
+        </aside>
+        <p class="setup-error" id="setup-error" role="alert" hidden></p>
+        <button class="finish-button" id="finish-setup" type="submit">Save setup and start pet</button>
+      </form>
+      <footer>NEXA VirtualPet <span aria-hidden="true">·</span> <span id="footer-version">Beta</span></footer>
+    </main>
+    <script src="setup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Abstract desktop pet">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c6b5ff"/>
+      <stop offset="1" stop-color="#7c6bd1"/>
+    </linearGradient>
+    <linearGradient id="ear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9deff"/>
+      <stop offset="1" stop-color="#aa98e8"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="120" cy="218" rx="74" ry="13" fill="#433775" opacity=".18"/>
+  <path d="M57 78 44 29q-3-12 10-7l49 33m80 23 13-49q3-12-10-7l-49 33" fill="url(#ear)" stroke="#6557b4" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M49 129c0-45 31-78 71-78s71 33 71 78v42c0 23-17 38-42 38H91c-25 0-42-15-42-38z" fill="url(#body)" stroke="#6557b4" stroke-width="7"/>
+  <path d="M75 127c0-8 6-14 14-14s14 6 14 14-6 14-14 14-14-6-14-14m48 0c0-8 6-14 14-14s14 6 14 14-6 14-14 14-14-6-14-14" fill="#352e58"/>
+  <path d="M112 148q8 8 16 0" fill="none" stroke="#493d77" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="77" cy="153" r="9" fill="#f5a8ce" opacity=".8"/>
+  <circle cx="163" cy="153" r="9" fill="#f5a8ce" opacity=".8"/>
+  <path d="M79 190q41 20 82 0" fill="none" stroke="#e9e1ff" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+</svg>

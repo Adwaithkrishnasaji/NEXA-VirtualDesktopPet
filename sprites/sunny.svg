@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Sunny the golden chick">
+  <style>
+    .chick { animation: bob 1.5s ease-in-out infinite; transform-origin: 120px 190px; }
+    .wings { animation: flap .55s ease-in-out infinite alternate; transform-origin: 120px 166px; }
+    @keyframes bob { 50% { transform: translateY(-8px) rotate(-2deg); } }
+    @keyframes flap { to { transform: rotate(12deg); } }
+  </style>
+  <ellipse cx="120" cy="218" rx="66" ry="10" fill="#806320" opacity=".18"/>
+  <g class="chick">
+    <path d="m102 70 18-25 18 25" fill="#ffcf4d" stroke="#b98619" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M48 144c0-43 31-71 72-71s72 28 72 71v24c0 28-19 44-47 44H95c-28 0-47-16-47-44z" fill="#ffd65d" stroke="#b98619" stroke-width="7"/>
+    <g class="wings" fill="#ffbd3f" stroke="#b98619" stroke-width="5">
+      <path d="M54 151q-34 8-23 35 12 18 37-2"/><path d="M186 151q34 8 23 35-12 18-37-2"/>
+    </g>
+    <circle cx="94" cy="133" r="8" fill="#553d21"/><circle cx="146" cy="133" r="8" fill="#553d21"/>
+    <path d="m106 148 14 12 14-12z" fill="#ef8730"/>
+    <path d="M95 192q25 12 50 0" fill="none" stroke="#f4a936" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

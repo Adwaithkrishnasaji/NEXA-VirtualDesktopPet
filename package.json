@@ -1,0 +1,16 @@
+{
+  "name": "nexa-virtualpet",
+  "version": "0.3.0-beta.1",
+  "description": "An AI-powered Electron desktop pet with local controls",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "@google/genai": "^2.28.0",
+    "electron": "36.9.5",
+    "groq-sdk": "^1.6.0",
+    "node-edge-tts": "^1.2.10",
+    "robotjs": "^0.9.1"
+  }
+}

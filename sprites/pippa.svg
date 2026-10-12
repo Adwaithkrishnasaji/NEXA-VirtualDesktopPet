@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Pippa the rose bunny">
+  <style>
+    .body { animation: bounce 1.8s ease-in-out infinite; transform-origin: 120px 190px; }
+    .ears { animation: ears 1.8s ease-in-out infinite; transform-origin: 120px 72px; }
+    @keyframes bounce { 50% { transform: translateY(-7px) scale(1.025); } }
+    @keyframes ears { 0%,100% { transform: rotate(0); } 30% { transform: rotate(-5deg); } 65% { transform: rotate(5deg); } }
+  </style>
+  <ellipse cx="120" cy="216" rx="68" ry="11" fill="#783d55" opacity=".18"/>
+  <g class="ears" fill="#ffb4ca" stroke="#b94e74" stroke-width="7" stroke-linejoin="round">
+    <path d="M66 99 55 31q-2-15 12-8l48 51m59 25 11-68q2-15-12-8l-48 51"/>
+    <path d="m72 81-5-36 28 29m57 7 5-36-28 29" fill="#ffe0e9" stroke="none"/>
+  </g>
+  <g class="body">
+    <path d="M48 135c0-44 31-73 72-73s72 29 72 73v34c0 27-19 43-47 43H95c-28 0-47-16-47-43z" fill="#ffb4ca" stroke="#b94e74" stroke-width="7"/>
+    <circle cx="91" cy="133" r="8" fill="#51283d"/><circle cx="149" cy="133" r="8" fill="#51283d"/>
+    <path d="M111 151q9 9 18 0" fill="none" stroke="#803e5b" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="76" cy="155" r="8" fill="#ff7f9f"/><circle cx="164" cy="155" r="8" fill="#ff7f9f"/>
+    <path d="M86 190q34-18 68 0" fill="none" stroke="#ffe0e9" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

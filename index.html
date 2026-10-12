@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A customizable AI desktop pet.">
+    <title>NEXA VirtualPet</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="desktop-pet" aria-label="NEXA VirtualPet">
+      <section class="speech-bubble" id="speech-bubble" aria-label="Desktop pet chat" hidden>
+        <header class="bubble-header">
+          <span class="status-dot" aria-hidden="true"></span>
+          <strong id="pet-name">NEXA VirtualPet</strong>
+          <span class="agent-state" id="agent-state" aria-live="polite">Ready</span>
+          <span class="model-version" id="model-version">BETA</span>
+          <button class="settings-button" id="settings-button" type="button" aria-label="Open settings" aria-expanded="false">⚙</button>
+          <button class="close-button" id="close-chat" type="button" aria-label="Close chat">×</button>
+        </header>
+        <section class="settings-panel" id="settings-panel" aria-label="Desktop pet settings" hidden>
+          <h2>Settings</h2>
+          <label class="setting-toggle" for="serious-mode">
+            <span>Serious mode</span>
+            <input id="serious-mode" type="checkbox">
+          </label>
+          <p class="settings-hint">Off by default. Turn on for direct, professional AI answers.</p>
+          <details class="credential-settings" id="personal-memory-settings">
+            <summary>Personal memory</summary>
+            <p class="settings-hint">NEXA saves details you share, including favorites and personal facts. Memories are encrypted on this device and may be included in chat requests to your configured AI provider. You can review or delete them here or ask NEXA to forget something.</p>
+            <div id="personal-memory-list" class="personal-memory-list" aria-live="polite"></div>
+            <button class="reset-position-button" id="refresh-personal-memory" type="button">Refresh memories</button>
+            <button class="reset-position-button" id="clear-personal-memory" type="button">Delete all memories</button>
+          </details>
+          <label class="setting-toggle" for="voice-enabled">
+            <span>Speak replies aloud</span>
+            <input id="voice-enabled" type="checkbox">
+          </label>
+          <label class="setting-control" for="voice-volume">
+            <span>Voice volume <output id="voice-volume-value" for="voice-volume">80%</output></span>
+            <input id="voice-volume" type="range" min="0" max="100" step="5" value="80">
+          </label>
+          <details class="credential-settings">
+            <summary>AI provider keys</summary>
+            <p class="settings-hint">Keys are encrypted with OS secure storage. Leave a field blank to keep its current key; use a remove button to delete an optional key.</p>
+            <label class="field-label" for="settings-gemini-key">Gemini API key</label>
+            <input id="settings-gemini-key" type="password" maxlength="512" autocomplete="new-password" spellcheck="false">
+            <label class="field-label" for="settings-groq-key">Groq backup key</label>
+            <input id="settings-groq-key" type="password" maxlength="512" autocomplete="new-password" spellcheck="false">
+            <label class="field-label" for="settings-youtube-key">YouTube Data API key</label>
+            <input id="settings-youtube-key" type="password" maxlength="512" autocomplete="new-password" spellcheck="false">
+            <p class="settings-hint">Enable YouTube Data API v3 in Google Cloud to search and play matching songs.</p>
+            <button class="reset-position-button" id="save-provider-keys" type="button">Update API keys</button>
+            <button class="reset-position-button" id="remove-backup-key" type="button">Remove Groq backup key</button>
+            <button class="reset-position-button" id="remove-youtube-key" type="button">Remove YouTube API key</button>
+          </details>
+          <label class="setting-control" for="color-theme">
+            <span>Color theme</span>
+            <select id="color-theme">
+              <option value="lavender">Lavender</option>
+              <option value="ocean">Ocean</option>
+              <option value="mint">Mint</option>
+              <option value="sunset">Sunset</option>
+              <option value="dark">Dark</option>
+            </select>
+          </label>
+          <label class="setting-control" for="chat-height">
+            <span>Chat height <output id="chat-height-value" for="chat-height">350 px</output></span>
+            <input id="chat-height" type="range" min="300" max="620" step="20" value="350">
+          </label>
+          <label class="setting-control" for="sprite-offset-x">
+            <span>Pet X offset <output id="sprite-offset-x-value" for="sprite-offset-x">0 px</output></span>
+            <input id="sprite-offset-x" type="range" min="-100" max="100" step="1" value="0">
+          </label>
+          <label class="setting-control" for="sprite-offset-y">
+            <span>Pet Y offset <output id="sprite-offset-y-value" for="sprite-offset-y">0 px</output></span>
+            <input id="sprite-offset-y" type="range" min="-100" max="100" step="1" value="0">
+          </label>
+          <label class="setting-toggle" for="position-locked">
+            <span>Lock pet position</span>
+            <input id="position-locked" type="checkbox">
+          </label>
+          <p class="settings-hint">Drag the pet to move it. Lock its position to prevent dragging.</p>
+          <button class="reset-position-button" id="reset-position" type="button">Reset pet position</button>
+          <button class="reset-position-button" id="open-maintenance" type="button">Maintain and customize pet</button>
+          <button class="reset-position-button" id="restart-pet" type="button">Restart Pet</button>
+          <p class="settings-note">Preferences are saved on this device.</p>
+        </section>
+        <div class="conversation" id="conversation" aria-live="polite">
+          <p class="message pet-message">Hi! Ask me anything, or ask me to control your pet settings.</p>
+        </div>
+        <section class="youtube-player" id="youtube-player" aria-label="YouTube player" hidden>
+          <header><span id="youtube-player-title">YouTube video</span><button id="close-youtube-player" type="button" aria-label="Close YouTube player">×</button></header>
+          <iframe id="youtube-frame" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <nav aria-label="YouTube player controls">
+            <button type="button" data-youtube-action="play">Play</button>
+            <button type="button" data-youtube-action="pause">Pause</button>
+            <button type="button" data-youtube-action="stop">Stop</button>
+            <button type="button" data-youtube-action="next">Next</button>
+          </nav>
+        </section>
+        <section class="agent-dock" aria-label="Local desktop controls">
+          <div class="agent-dock-status">
+            <span>Assistant</span>
+            <span>Gemini · Groq backup</span>
+          </div>
+          <div class="agent-actions">
+            <button id="attach-image" type="button">Attach image</button>
+            <button id="capture-screen" type="button">Share screen</button>
+            <button id="capture-camera" type="button">Camera</button>
+            <button id="generate-image" type="button">Create image</button>
+          </div>
+        </section>
+        <nav class="conversation-scroll-controls" aria-label="Chat scrolling controls">
+          <button id="scroll-up" type="button" aria-label="Scroll chat upward" title="Scroll up">↑</button>
+          <button id="scroll-down" type="button" aria-label="Scroll chat downward" title="Scroll down">↓</button>
+        </nav>
+        <form class="chat-form" id="chat-form">
+          <button id="voice-input" type="button" aria-label="Start voice input" title="Voice input">🎙</button>
+          <input id="message-input" type="text" maxlength="2000" placeholder="Ask me anything…" autocomplete="off" aria-label="Message">
+          <button id="send-button" type="submit" aria-label="Send message">➤</button>
+        </form>
+        <input id="image-file-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden>
+      </section>
+      <button class="pet-button" id="pet-button" type="button" aria-label="Open or close desktop pet chat" aria-expanded="false">
+        <span class="sparkle sparkle-one" aria-hidden="true">✦</span>
+        <img class="pet" id="pet-image" src="pet-avatar.svg" alt="" aria-hidden="true" draggable="false">
+        <span class="sleep-z" aria-hidden="true">z<span>z</span></span>
+        <span class="sparkle sparkle-two" aria-hidden="true">✧</span>
+      </button>
+    </main>
+    <dialog class="app-input-dialog" id="app-input-dialog" aria-labelledby="app-input-title">
+      <form id="app-input-form" method="dialog">
+        <h2 id="app-input-title"></h2>
+        <p id="app-input-description"></p>
+        <label class="app-input-label" id="app-input-label" for="app-input-field"></label>
+        <input id="app-input-field" type="text" maxlength="2000" autocomplete="off" required>
+        <select id="app-input-select" required hidden></select>
+        <div class="app-input-actions">
+          <button id="app-input-cancel" type="button">Cancel</button>
+          <button type="submit" value="accept">Continue</button>
+        </div>
+      </form>
+    </dialog>
+    <script src="idleQuotes.js"></script>
+    <script src="localCommand.js"></script>
+    <script src="whatsappRequests.js"></script>
+    <script src="renderer.js"></script>
+  </body>
+</html>

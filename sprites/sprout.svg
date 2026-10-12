@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Sprout the leaf-green frog">
+  <style>
+    .frog { animation: hop 1.7s ease-in-out infinite; transform-origin: 120px 202px; }
+    .blink { animation: blink 3.8s infinite; transform-origin: center; }
+    @keyframes hop { 0%,100% { transform: translateY(0) scale(1); } 45% { transform: translateY(-14px) scale(1.04,.96); } }
+    @keyframes blink { 0%,45%,49%,100% { transform: scaleY(1); } 47% { transform: scaleY(.12); } }
+  </style>
+  <ellipse cx="120" cy="218" rx="72" ry="10" fill="#35683f" opacity=".18"/>
+  <g class="frog">
+    <path d="M62 102q-20-37 8-47 25-9 34 29m34 0q9-38 34-29 28 10 8 47" fill="#a5ec78" stroke="#418348" stroke-width="7"/>
+    <ellipse cx="84" cy="69" rx="15" ry="17" fill="#c6f59e" stroke="#418348" stroke-width="6"/>
+    <ellipse cx="156" cy="69" rx="15" ry="17" fill="#c6f59e" stroke="#418348" stroke-width="6"/>
+    <path d="M48 148c0-43 31-72 72-72s72 29 72 72v22c0 28-18 45-45 45H93c-27 0-45-17-45-45z" fill="#a5ec78" stroke="#418348" stroke-width="7"/>
+    <g class="blink" fill="#fff"><ellipse cx="91" cy="126" rx="17" ry="20"/><ellipse cx="149" cy="126" rx="17" ry="20"/></g>
+    <circle cx="94" cy="130" r="7" fill="#244638"/><circle cx="146" cy="130" r="7" fill="#244638"/>
+    <path d="M92 157q28 25 56 0" fill="none" stroke="#418348" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="68" cy="157" r="7" fill="#72ce71"/><circle cx="172" cy="157" r="7" fill="#72ce71"/>
+  </g>
+</svg>

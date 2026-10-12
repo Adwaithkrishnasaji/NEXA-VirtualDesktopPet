@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Ember the tangerine fox">
+  <style>
+    .tail { animation: swish 1.3s ease-in-out infinite alternate; transform-origin: 176px 171px; }
+    .fox { animation: pounce 1.9s ease-in-out infinite; transform-origin: 120px 194px; }
+    @keyframes swish { to { transform: rotate(16deg); } }
+    @keyframes pounce { 50% { transform: translateY(-9px) scale(1.025); } }
+  </style>
+  <ellipse cx="120" cy="217" rx="70" ry="11" fill="#754522" opacity=".18"/>
+  <g class="tail">
+    <path d="M171 163q53-9 49 31-3 25-34 15l-27-12" fill="#f68b43" stroke="#a95027" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M190 188q14-8 25-2-3 19-22 17z" fill="#fff1d5"/>
+  </g>
+  <g class="fox">
+    <path d="m63 96 5-57q1-13 13-5l40 36 38-36q12-8 13 5l5 57" fill="#f68b43" stroke="#a95027" stroke-width="7" stroke-linejoin="round"/>
+    <path d="m78 77 1-22 23 20m47 0 23-20 1 22" fill="#ffe3c4"/>
+    <path d="M48 139c0-44 31-72 72-72s72 28 72 72v31c0 27-18 42-46 42H94c-28 0-46-15-46-42z" fill="#f68b43" stroke="#a95027" stroke-width="7"/>
+    <path d="M76 154q24-23 48 0-24 24-48 0m40 0q24-23 48 0-24 24-48 0" fill="#fff1d5"/>
+    <circle cx="94" cy="137" r="7" fill="#4e3027"/><circle cx="146" cy="137" r="7" fill="#4e3027"/>
+    <path d="M113 155q7 7 14 0" fill="none" stroke="#79402c" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

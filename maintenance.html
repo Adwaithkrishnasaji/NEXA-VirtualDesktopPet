@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Maintain and customize your NEXA VirtualPet.">
+    <title>NEXA VirtualPet Maintenance</title>
+    <link rel="stylesheet" href="maintenance.css">
+  </head>
+  <body>
+    <main class="maintenance-card">
+      <header>
+        <span class="version-badge" id="model-version">NEXA VirtualPet BETA</span>
+        <h1>Pet maintenance</h1>
+        <p>Update your pet's identity, character, sprite, and encrypted AI provider keys.</p>
+      </header>
+
+      <form id="profile-form">
+        <fieldset>
+          <legend>Pet profile</legend>
+          <label for="pet-name">Pet name</label>
+          <input id="pet-name" maxlength="32" autocomplete="off" required>
+          <label for="character-style">Conversation character</label>
+          <select id="character-style">
+            <option value="playful">Playful - witty pet friend</option>
+            <option value="friendly">Friendly - warm and encouraging</option>
+            <option value="professional">Professional - direct AI assistant</option>
+          </select>
+          <p class="field-hint">Serious mode is a separate toggle in the pet's Settings.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Choose a sprite</legend>
+          <div class="sprite-gallery" id="sprite-gallery" role="radiogroup" aria-label="Choose a pet sprite"></div>
+          <label class="custom-sprite-toggle">
+            <input id="keep-custom-sprite" type="checkbox">
+            Keep my previously uploaded custom sprite
+          </label>
+          <label for="sprite-file">Upload a custom sprite (optional)</label>
+          <input id="sprite-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+          <p class="field-hint">A custom image overrides the selected animated sprite. Clear the checkbox and leave this blank to use the selected sprite.</p>
+          <img id="sprite-preview" alt="Custom sprite preview" hidden>
+        </fieldset>
+
+        <p id="profile-error" class="error-message" role="alert" hidden></p>
+        <button class="primary-button" type="submit" id="save-profile">Save pet profile</button>
+      </form>
+
+      <form id="credentials-form">
+        <fieldset>
+          <legend>AI provider keys</legend>
+          <p id="credential-status" class="field-hint">Loading encrypted credential status…</p>
+          <p class="field-hint">Keys are encrypted with OS secure storage. Blank fields keep the current key. Keys are never shown after saving.</p>
+          <label for="gemini-api-key">Gemini API key</label>
+          <input id="gemini-api-key" type="password" minlength="20" maxlength="512" autocomplete="new-password" spellcheck="false">
+          <label for="groq-api-key">Groq backup key</label>
+          <input id="groq-api-key" type="password" minlength="20" maxlength="512" autocomplete="new-password" spellcheck="false">
+          <label for="youtube-api-key">YouTube Data API key</label>
+          <input id="youtube-api-key" type="password" minlength="20" maxlength="512" autocomplete="new-password" spellcheck="false">
+          <p class="field-hint">Enable YouTube Data API v3 in Google Cloud to search and play matching songs.</p>
+          <div class="button-row">
+            <button class="primary-button" type="submit">Update provider keys</button>
+            <button class="secondary-button" type="button" id="remove-groq-key">Remove Groq backup</button>
+            <button class="secondary-button" type="button" id="remove-youtube-key">Remove YouTube key</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <p id="page-status" class="status-message" aria-live="polite"></p>
+      <footer>For theme, window size, voice, and serious mode, use the pet's in-app Settings.</footer>
+    </main>
+    <script src="maintenance.js"></script>
+  </body>
+</html>
